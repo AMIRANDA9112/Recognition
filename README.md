@@ -51,28 +51,30 @@ In the console execute the index
 ```
 python index.py
 ```
-![alt text](https://ibb.co/DRTFf5T)
+![alt empty](https://i.ibb.co/TgdGMmd/Captura-de-pantalla-2020-08-05-02-03-25.png)
 
 you need enter the path of video and the directory of image with faces
 to recognition on video and push the "Star Face Analyse" bottom.
 
 like this
 
-![alt](https://ibb.co/fdXsR3r)
+![alt full](https://i.ibb.co/xq2Nvnz/lliii.png)
 
 
 And the processing will plot the video, you can skip this with Esc key.
 
-![alt](https://ibb.co/K5Zn3rL)
+![alt](https://i.ibb.co/p1Dq9LR/asasas.png)
 
 In few seconds later the process will plot a collage with the frames of
 video, and the face detect, and the positive match recognition.
 
-![alt](https://ibb.co/2d7MTMV)
+![alt](https://i.ibb.co/zZh2z29/PRODUIC.png)
 
-### Spanish Tutorial
+### Spanish Tutorial Video
 
-[![Tutorial Youtube](https://ibb.co/K5Zn3rL)](https://youtu.be/bbYa1fTbGbA)
+[![Watch on Youtube](https://i.ibb.co/S6Vdhz8/escritorio.png)](https://youtu.be/bbYa1fTbGbA)
+
+https://youtu.be/bbYa1fTbGbA
 
 
 ##Author
