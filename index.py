@@ -20,7 +20,7 @@ class interface:
         self.message2['text'] = 'You can Skip the video processing and the Match with ESC Key '
 
         # video container
-        frame = LabelFrame(self.wind, text='Find Faces in Video')
+        frame = LabelFrame(self.wind, text='Tag Faces in Video')
         frame.grid(row=0, column=0, columnspan=3, pady=20)
 
         # Url video Input
@@ -53,7 +53,7 @@ class interface:
             classify_face(collage, dirface)
             self.message['text'] = 'Video and Faces Image Analyze is Successfully'
         else:
-            self.message['text'] = 'A Video to Analyze and Face to search is required'
+            self.message['text'] = 'AVideo to Analyze and Faces Images is required'
 
 
 if __name__ == '__main__':
