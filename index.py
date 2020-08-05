@@ -8,7 +8,7 @@ class interface:
 
     def __init__(self, window):
         self.wind = window
-        self.wind.title('Face Detector')
+        self.wind.title('Recognition')
 
         # Output message
         self.message = Label(text='', fg='blue')
