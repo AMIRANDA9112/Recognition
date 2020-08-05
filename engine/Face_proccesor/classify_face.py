@@ -1,7 +1,7 @@
 import face_recognition as fr
 import cv2
 import numpy as np
-from engine.get_faces import get_faces
+from engine.Face_proccesor.get_faces import get_faces
 
 
 
@@ -10,9 +10,11 @@ def classify_face(im, tags):
     will find all of the faces in a given image and label
     them if it knows what they are
 
+    :param tags: img
     :param im: str of file path
     :return: list of face names
     """
+
     faces = get_faces(tags)
     faces_encoded = list(faces.values())
     known_face_names = list(faces.keys())

@@ -6,6 +6,7 @@ def get_faces(tags):
     """
     Encodes all the faces
 
+    :rtype: object
     :return: dict of (name, image encoded)
     """
     encoded = {}
