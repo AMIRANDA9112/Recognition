@@ -53,7 +53,7 @@ class interface:
             classify_face(collage, dirface)
             self.message['text'] = 'Video and Faces Image Analyze is Successfully'
         else:
-            self.message['text'] = 'AVideo to Analyze and Faces Images is required'
+            self.message['text'] = 'Video to Analyze and Faces Images is required'
 
 
 if __name__ == '__main__':
