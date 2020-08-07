@@ -7,6 +7,7 @@ from tkinter import ttk
 class interface:
 
     def __init__(self, window):
+
         self.wind = window
         self.wind.title('Recognition')
 
@@ -43,7 +44,7 @@ class interface:
 
     def add_url(self):
 
-        if self.validation():
+        if self.svalidation():
             # get video
             dirvideo = self.video.get()
             collage = get_collage(dirvideo)
