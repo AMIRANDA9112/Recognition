@@ -4,7 +4,6 @@ import numpy as np
 from engine.Face_proccesor.get_faces import get_faces
 
 
-
 def classify_face(im, tags):
     """
     will find all of the faces in a given image and label

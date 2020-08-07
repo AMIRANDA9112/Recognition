@@ -7,30 +7,30 @@ and face recognition for development of a product for urban
 security in zone of high stream of people and controlled
 environment.
 
-Big O notation = O(a*b)
+Big O notation = O(a*b)^c
 
 a = number of face image to search
 
 b = long of video to analyze
 
-I can build this project in base to this projects:
+c = video resolution
 
-https://github.com/techwithtim/Face-Recognition
+### Recommended
 
-https://github.com/FaztWeb/python-tkinter-sqlite-crud
+c = 640 x 480
 
-https://www.coursera.org/learn/analyzing-video-opencv-numpy
 
 ## Requirements
 
 If you can run it you'll need this libraries in Python 3.7:
 
-- cmake
-- dlib >= 19.7
-- face_recognition
+- opencv-python~=4.2.0.34
+- numpy~=1.19.0
+- future~=0.18.2
+- google_images_download~=2.8.0
 - face_recognition_models
-- numpy
-- opencv-python
+- face_recognition
+- cmake
 
 Faces to recognition in video target must have .png or .jpg format,
 each image need have one face in front position without accessories,
@@ -75,6 +75,16 @@ video, and the face detect, and the positive match recognition.
 [![Watch on Youtube](https://i.ibb.co/S6Vdhz8/escritorio.png)](https://youtu.be/bbYa1fTbGbA)
 
 https://youtu.be/bbYa1fTbGbA
+
+## Credits
+
+I can build this project in base to this projects:
+
+https://github.com/techwithtim/Face-Recognition
+
+https://github.com/FaztWeb/python-tkinter-sqlite-crud
+
+https://www.coursera.org/learn/analyzing-video-opencv-numpy
 
 
 ## Author
