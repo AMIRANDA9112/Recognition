@@ -44,7 +44,7 @@ class interface:
 
     def add_url(self):
 
-        if self.svalidation():
+        if self.validation():
             # get video
             dirvideo = self.video.get()
             collage = get_collage(dirvideo)
