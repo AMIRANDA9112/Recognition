@@ -1,4 +1,4 @@
-from engine.Video_proccesor.get_collage import get_collage
+from engine.Video_proccesor.compile_video import compile_video
 from engine.Face_proccesor.classify_face import classify_face
 from get_web.download_video import download_video
 from get_web.search_face import search_face
@@ -37,26 +37,31 @@ class interface_index:
         self.face = Entry(frame)
         self.face.grid(row=2, column=1)
 
+        # detail of analyze input
+        Label(frame, text='Detail index (Min0.0-Max1.0):').grid(row=3, column=0)
+        self.detail = Entry(frame)
+        self.detail.grid(row=3, column=1)
+
         # start button
-        ttk.Button(frame, text='Start Face Analysis', command=self.add_path).grid(row=3, columnspan=2, sticky=W + E)
+        ttk.Button(frame, text='Start Face Analysis', command=self.add_path).grid(row=4, columnspan=2, sticky=W + E)
 
         # Url video Input
-        Label(frame, text='Video url:').grid(row=4, column=0)
+        Label(frame, text='Video url:').grid(row=5, column=0)
         self.download = Entry(frame)
         self.download.focus()
-        self.download.grid(row=4, column=1)
+        self.download.grid(row=5, column=1)
 
         # download Button
-        ttk.Button(frame, text='Download Video', command=self.get_url_video).grid(row=5, columnspan=2, sticky=W + E)
+        ttk.Button(frame, text='Download Video', command=self.get_url_video).grid(row=6, columnspan=2, sticky=W + E)
 
         # download face
-        Label(frame, text='Name:').grid(row=6, column=0)
+        Label(frame, text='Name:').grid(row=7, column=0)
         self.search = Entry(frame)
         self.search.focus()
-        self.search.grid(row=6, column=1)
+        self.search.grid(row=7, column=1)
 
         # download Button
-        ttk.Button(frame, text='Search Face', command=self.download_face).grid(row=7, columnspan=2, sticky=W + E)
+        ttk.Button(frame, text='Search Face', command=self.download_face).grid(row=8, columnspan=2, sticky=W + E)
 
     def validation_url_video(self):
         # validation url input
@@ -75,11 +80,13 @@ class interface_index:
         if self.validation():
             # get video
             dir_video = self.video.get()
-            collage = get_collage(dir_video)
             # get images
             dir_face = self.face.get()
 
-            classify_face(collage, dir_face)
+            detail = self.detail.get()
+
+            compile_video(dir_video, dir_face, detail)
+
             self.message['text'] = 'Video and Faces Image Analyze is Successfully'
         else:
             self.message['text'] = 'Video to Analyze and Faces Images is required'
