@@ -2,7 +2,6 @@ import numpy as np
 import cv2
 
 
-
 def get_collage(frames, count):
     """
 
@@ -10,19 +9,17 @@ def get_collage(frames, count):
     """
     nf = int(count)
 
+    print(nf)
 
-    
-    print(nf)
-    
     nf = (nf // 3) * 3
-    
+
     print(nf)
-    
-    l1 = nf/3
+
+    l1 = nf / 3
     l1 = int(l1)
 
     print(l1)
-    l2 = (nf/3) * 2
+    l2 = (nf / 3) * 2
     l2 = int(l2)
     print(l2)
     l3 = nf
@@ -34,4 +31,4 @@ def get_collage(frames, count):
     row3 = np.concatenate(frames[l2:l3], axis=1)
 
     collage = np.concatenate((row1, row2, row3), axis=0)
-    return(collage)
+    return (collage)

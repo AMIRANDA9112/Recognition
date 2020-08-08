@@ -40,7 +40,7 @@ Faces to recognition in video target must have .png or .jpg format,
 each image need have one face in front position without accessories,
 with the face in the most clear possible scene.
 
-and the video could have .mp4 format.
+and the video could have .mp4(Xvid) format.
 
 ## Usage
 
