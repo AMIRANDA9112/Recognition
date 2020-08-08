@@ -21,6 +21,7 @@ def compile_video(dir_video, dir_faces, detail):
         print(count)
 
         frames = []
+        counter_append = 0
         counter = 0
         for f in get_frames(dir_video):
             if counter != 0:
@@ -28,9 +29,17 @@ def compile_video(dir_video, dir_faces, detail):
                     n = classify_face(f, dir_faces)
                     print(counter)
                     frames.append(n)
+                    counter_append += 1
+                    
             counter += 1
+            
+        counter_append = int(counter_append)
 
-        get_collage(frames, counter)
+        collage = get_collage(frames, counter_append)
+        dirv = (dir_faces + '/analyze.png')
+        cv2.imwrite(dirv , collage)
+        
+        return count
 
     else:
         "fail"

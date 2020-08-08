@@ -10,7 +10,7 @@ class interface_index:
     def __init__(self, window):
 
         self.wind = window
-        self.wind.title('Recognition')
+        self.wind.title('Recognition Laboratory version beta 1.0')
 
         # Output message
         self.message = Label(text='', fg='blue')
@@ -90,9 +90,12 @@ class interface_index:
 
             print(details)
 
-            compile_video(dir_video, dir_face, details)
+            if compile_video(dir_video, dir_face, details):
 
-            self.message['text'] = 'Video and Faces Image Analyze is Successfully'
+                self.message['text'] = 'Video and Faces Image Analyze is Successfully'
+            else:
+                self.message['text'] = 'A valid .mp4 video is required'
+                
         else:
             self.message['text'] = 'Video to Analyze and Faces Images is required'
 

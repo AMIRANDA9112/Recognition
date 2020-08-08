@@ -14,7 +14,7 @@ def get_faces(tags):
     for dirpath, dnames, fnames in os.walk(tags):
         for f in fnames:
             if f.endswith(".jpg") or f.endswith(".png"):
-                face = fr.load_image_file("faces/" + f)
+                face = fr.load_image_file(tags + '/' + f)
                 encoding = fr.face_encodings(face)[0]
                 encoded[f.split(".")[0]] = encoding
 

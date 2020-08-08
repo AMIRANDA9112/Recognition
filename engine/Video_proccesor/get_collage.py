@@ -1,32 +1,37 @@
 import numpy as np
 import cv2
-import matplotlib.pyplot as plt
 
 
-def get_collage(frames, detail):
+
+def get_collage(frames, count):
     """
 
     :rtype: path of video to analyze
     """
+    nf = int(count)
 
-    limit_1 = int(detail) / 3
-    limit_1 = limit_1
-    limit_15 = int(detail) / 3
-    limit_15 = limit_15
-    limit_25 = (int(detail) / 3) * 2
-    limit_25 = limit_25
-    limit_2 = ((int(detail) / 3) * 2) - 1
-    limit_2 = limit_2
-    detail = int(detail) - 1
-    detail = detail
 
-    row1 = np.concatenate(frames[0:limit_1], axis=1)
-    row2 = np.concatenate(frames[limit_15:limit_2], axis=1)
-    row3 = np.concatenate(frames[limit_25:detail], axis=1)
+    
+    print(nf)
+    
+    nf = (nf // 3) * 3
+    
+    print(nf)
+    
+    l1 = nf/3
+    l1 = int(l1)
 
-    print(row3)
+    print(l1)
+    l2 = (nf/3) * 2
+    l2 = int(l2)
+    print(l2)
+    l3 = nf
+
+    print(l3)
+
+    row1 = np.concatenate(frames[0:l1], axis=1)
+    row2 = np.concatenate(frames[l1:l2], axis=1)
+    row3 = np.concatenate(frames[l2:l3], axis=1)
+
     collage = np.concatenate((row1, row2, row3), axis=0)
-    collage = cv2.cvtColor(collage, cv2.COLOR_BGR2RGB)
-    plt.imshow(collage)
-
-    return collage
+    return(collage)

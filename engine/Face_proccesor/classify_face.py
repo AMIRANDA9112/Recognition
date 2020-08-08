@@ -50,7 +50,6 @@ def classify_face(im, tags):
                     cv2.rectangle(img, (left - 20, bottom - 15), (right + 20, bottom + 20), (255, 255, 255), cv2.FILLED)
                     font = cv2.FONT_HERSHEY_COMPLEX
                     cv2.putText(img, name, (left - 20, bottom + 15), font, 1.0, (0, 0, 0), 2)
-                print(img)
                 return img
             else:
                 pass
