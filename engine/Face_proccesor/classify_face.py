@@ -44,12 +44,18 @@ def classify_face(im, tags):
 
                 for (top, right, bottom, left), name in zip(face_locations, face_names):
                     # Draw a box around the face
-                    cv2.rectangle(img, (left - 20, top - 20), (right + 20, bottom + 20), (255, 255, 255), 2)
+                    cv2.rectangle(img, (left - 20, top - 20),
+                                  (right + 20, bottom + 20),
+                                  (255, 255, 255), 2)
 
                     # Draw a label with a name below the face
-                    cv2.rectangle(img, (left - 20, bottom - 15), (right + 20, bottom + 20), (255, 255, 255), cv2.FILLED)
+                    cv2.rectangle(img, (left - 20, bottom - 15),
+                                  (right + 20, bottom + 20),
+                                  (255, 255, 255), cv2.FILLED)
+                    
                     font = cv2.FONT_HERSHEY_COMPLEX
-                    cv2.putText(img, name, (left - 20, bottom + 15), font, 1.0, (0, 0, 0), 2)
+                    cv2.putText(img, name, (left - 20, bottom + 15), 
+                                font, 1.0, (0, 0, 0), 2)
                 return img
             else:
                 pass

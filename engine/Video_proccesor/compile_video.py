@@ -2,8 +2,6 @@ import cv2
 from engine.Video_proccesor.get_frames import get_frames
 from engine.Face_proccesor.classify_face import classify_face
 from engine.Video_proccesor.get_collage import get_collage
-from tkinter import ttk
-from tkinter import *
 
 
 def compile_video(dir_video, dir_faces, detail):
