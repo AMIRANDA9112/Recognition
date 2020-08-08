@@ -24,16 +24,17 @@ c = 640 x 480
 
 If you can run it you'll need this libraries in Python 3.7:
 
-pencv-python~=4.2.0.3
-numpy~=1.19.0
-future~=0.18.2
-face_recognition_models
-face_recognition
-cmake
-icrawler~=0.6.3
-opencv-python~=4.2.0.34
-matplotlib~=3.1.1
-os
+- Python 3.7
+- pencv-python~=4.2.0.3
+- numpy~=1.19.0
+- future~=0.18.2
+- face_recognition_models
+- face_recognition
+- cmake
+- icrawler~=0.6.3
+- opencv-python~=4.2.0.34
+- matplotlib~=3.1.1
+- os
 
 Faces to recognition in video target must have .png or .jpg format,
 each image need have one face in front position without accessories,
