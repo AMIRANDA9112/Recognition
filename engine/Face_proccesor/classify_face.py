@@ -14,7 +14,7 @@ def classify_face(im, tags):
     :return: list of face names
     """
 
-    if im:
+    if im.any():
 
         faces = get_faces(tags)
         faces_encoded = list(faces.values())
@@ -48,9 +48,9 @@ def classify_face(im, tags):
 
                     # Draw a label with a name below the face
                     cv2.rectangle(img, (left - 20, bottom - 15), (right + 20, bottom + 20), (255, 255, 255), cv2.FILLED)
-                    font = cv2.QT_FONT_LIGHT
+                    font = cv2.FONT_HERSHEY_COMPLEX
                     cv2.putText(img, name, (left - 20, bottom + 15), font, 1.0, (0, 0, 0), 2)
-
+                print(img)
                 return img
             else:
                 pass

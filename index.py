@@ -1,5 +1,4 @@
 from engine.Video_proccesor.compile_video import compile_video
-from engine.Face_proccesor.classify_face import classify_face
 from get_web.download_video import download_video
 from get_web.search_face import search_face
 from tkinter import *
@@ -38,8 +37,8 @@ class interface_index:
         self.face.grid(row=2, column=1)
 
         # detail of analyze input
-        Label(frame, text='Detail index (Min0.0-Max1.0):').grid(row=3, column=0)
-        self.detail = Entry(frame)
+        Label(frame, text='Detail index (Min1-Max10):').grid(row=3, column=0)
+        self.detail = Spinbox(frame, from_=1, to=10)
         self.detail.grid(row=3, column=1)
 
         # start button
@@ -48,7 +47,6 @@ class interface_index:
         # Url video Input
         Label(frame, text='Video url:').grid(row=5, column=0)
         self.download = Entry(frame)
-        self.download.focus()
         self.download.grid(row=5, column=1)
 
         # download Button
@@ -57,7 +55,6 @@ class interface_index:
         # download face
         Label(frame, text='Name:').grid(row=7, column=0)
         self.search = Entry(frame)
-        self.search.focus()
         self.search.grid(row=7, column=1)
 
         # download Button
@@ -83,9 +80,17 @@ class interface_index:
             # get images
             dir_face = self.face.get()
 
-            detail = self.detail.get()
+            detail_process = self.detail.get()
 
-            compile_video(dir_video, dir_face, detail)
+            print(detail_process)
+
+            detail_process = int(detail_process)/10
+
+            details = detail_process
+
+            print(details)
+
+            compile_video(dir_video, dir_face, details)
 
             self.message['text'] = 'Video and Faces Image Analyze is Successfully'
         else:
@@ -94,7 +99,7 @@ class interface_index:
     def get_url_video(self):
         # redirect to download video
         if self.validation_url_video():
-            
+
             url_video = self.download.get()
             download_video(url_video)
             self.message['text'] = 'Redirecting to download page, write video path when download finish'
