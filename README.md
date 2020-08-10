@@ -20,6 +20,8 @@ c = video resolution
 c = 640 x 480
 
 
+
+
 ## Requirements
 
 If you can run it you'll need this libraries in Python 3.7:
@@ -79,6 +81,17 @@ video, and the face detect, and the positive match recognition.
 [![Watch on Youtube](https://i.ibb.co/S6Vdhz8/escritorio.png)](https://youtu.be/bbYa1fTbGbA)
 
 https://youtu.be/bbYa1fTbGbA
+
+### Resources
+
+https://github.com/techwithtim/Face-Recognition
+
+
+https://github.com/FaztWeb/python-tkinter-sqlite-crud
+
+
+https://www.coursera.org/learn/analyzing-video-opencv-numpy
+
 
 ## Credits
 
