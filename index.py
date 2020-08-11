@@ -10,7 +10,7 @@ class interface_index:
     def __init__(self, window):
 
         self.wind = window
-        self.wind.title('Recognition Laboratory -- Version 1.1b')
+        self.wind.title('Recognition Laboratory -- Version 1.3a')
 
         # Colors Style
 
