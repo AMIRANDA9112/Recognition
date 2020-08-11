@@ -1,4 +1,3 @@
-#!/usr/bin/env
 import cv2
 from engine.Video_proccesor.get_frames import get_frames
 from engine.Face_proccesor.classify_face import classify_face
@@ -19,7 +18,8 @@ def compile_video(dir_video, dir_faces, detail):
         video.release()
 
         faces = get_faces(dir_faces)
-        print(count)
+
+        print('Total Frames of Video = {}'.format(count))
 
         frames = []
         counter_append = 0
@@ -30,8 +30,9 @@ def compile_video(dir_video, dir_faces, detail):
                 if (counter * detail) % 10 == 0:
 
                     n = classify_face(f, faces)
-                    status_bar(counter, count)
                     frames.append(n)
+                    progress = counter/(count/100)
+                    print('Process Status = %{}'.format(progress))
                     counter_append += 1
                     
             counter += 1

@@ -1,4 +1,3 @@
-#!/usr/bin/env
 import face_recognition as fr
 import cv2
 import numpy as np
@@ -22,11 +21,11 @@ def classify_face(im, faces):
         # img = cv2.resize(im, (0, 0), fx=0.5, fy=0.5)
         img = im
 
-        face_locations = fr.face_locations(img)
+        face_loc = fr.face_locations(img)
 
-        if face_locations:
+        if face_loc:
 
-            unknown_face_encodings = fr.face_encodings(img, face_locations)
+            unknown_face_encodings = fr.face_encodings(img, face_loc)
 
             face_names = []
             for face_encoding in unknown_face_encodings:
@@ -42,7 +41,7 @@ def classify_face(im, faces):
 
                 face_names.append(name)
 
-                for (top, right, bottom, left), name in zip(face_locations, face_names):
+                for (top, right, bottom, left), name in zip(face_loc, face_names):
                     # Draw a box around the face
                     cv2.rectangle(img, (left - 20, top - 20),
                                   (right + 20, bottom + 20),
