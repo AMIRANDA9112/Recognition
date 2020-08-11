@@ -44,9 +44,5 @@ def search_face(name, directory):
             cv2.imwrite(new_name, img, [cv2.IMWRITE_PNG_COMPRESSION, 9])
             return 0
 
-
-
-
-
         else:
             pass

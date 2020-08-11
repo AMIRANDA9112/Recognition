@@ -4,7 +4,7 @@ from engine.Video_proccesor.get_frames import get_frames
 
 def convert_video(VFILE):
 
-    fourcc = cv2.VideoWriter_fourcc('M', 'P', '4', 'V')
+    fourcc = cv2.VideoWriter_fourcc()
     DIRFILE = VFILE + "Convert"
 
     print(VFILE)

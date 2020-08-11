@@ -1,14 +1,11 @@
 from get_web.download_video import download_video
 from get_web.search_face import search_face
-from engine.Video_proccesor.convert_video import convert_video
+from engine.Video_proccesor.get_cam import get_cam
 from engine.Video_proccesor.compile_video import compile_video
 from tkinter import *
 
 
 class interface_index:
-
-
-
 
     def __init__(self, window):
 
@@ -36,10 +33,6 @@ class interface_index:
         # color_font = "black"
         color_message = "blue"
 
-        # images
-
-        image = Image("photo", file='icon.png')
-
         # Output message
         self.message = Label(text='', fg=color_message)
         self.message.grid(row=7, column=0, columnspa=2, sticky=W + E)
@@ -53,7 +46,7 @@ class interface_index:
 
         self.message3 = Label(text='', fg=color_message)
         self.message3.grid(row=4, column=0, columnspa=2, sticky=W + E)
-        self.message3['text'] = 'If Analysis fail by video format, try Convert option'
+        self.message3['text'] = 'You can use your WebCam'
         self.message3.config(bg=bg_message)
 
         # Input Main process container
@@ -86,8 +79,12 @@ class interface_index:
 
         # start button
 
-        Button(frame, text='Start Face Analysis', command=self.add_path, bg=color_button, bd=border_width).grid \
-            (row=5, columnspan=2, sticky=W + E)
+        Button(frame, text='Start Face Analysis', command=self.add_path,
+               bg=color_button, bd=border_width).grid(row=5, columnspan=2, sticky=W + E)
+
+        # Convert video Button
+        Button(frame, text='WebCam Face Analysis', command=self.add_cam, bg=color_button,
+               bd=border_width).grid(row=6, columnspan=2, sticky=W + E)
 
         # Tools section
 
@@ -96,15 +93,6 @@ class interface_index:
         frame2.config(bg=color_label, bd=border_width)
 
         # intput video to convert
-
-        Label(frame2, text='Video Path: ', bg=color_section, bd=border_width).grid(row=1, column=0)
-        self.video_f = Entry(frame2)
-        self.video_f.grid(row=1, column=1)
-        self.video_f.config(bg=color_input, bd=border_width)
-
-        # Convert video Button
-        Button(frame2, text='Convert Video to Required Format', command=self.convert, bg=color_button,
-               bd=border_width).grid(row=2, columnspan=2, sticky=W + E)
 
         # Url video Input
         Label(frame2, text='Video url:', bg=color_section, bd=border_width).grid(row=3, column=0)
@@ -123,8 +111,8 @@ class interface_index:
         self.search.config(bg=color_input, bd=border_width)
 
         # download face Button
-        Button(frame2, text='Search Face', command=self.download_face, bg=color_button, bd=border_width).grid \
-            (row=6, columnspan=2, sticky=W + E)
+        Button(frame2, text='Search Face', command=self.download_face,
+               bg=color_button, bd=border_width).grid(row=6, columnspan=2, sticky=W + E)
 
     # Validations methods
 
@@ -140,9 +128,19 @@ class interface_index:
         # validation paths input
         return len(self.video.get()) != 0 and len(self.face.get()) != 0
 
-    def validation_convert(self):
+    def validation_cam(self):
         # validation url input
-        return len(self.video_f.get()) != 0
+        return len(self.face.get()) != 0
+
+    def add_cam(self):
+
+        if self.validation_cam():
+            faces = self.face.get()
+            get_cam(faces)
+            self.message3['text'] = 'WebCam Analysis In Progress'
+
+        else:
+            self.message3['text'] = 'You Need Images in Faces Directory'
 
     def add_path(self):
 
@@ -166,27 +164,6 @@ class interface_index:
 
         else:
             self.message['text'] = 'Video to Analyze and Faces Images is required'
-
-    def convert(self):
-        # Convert video to Format 
-        if self.validation_convert():
-
-            link = self.video_f.get()
-
-            if link.endswith(".mp4"):
-
-                full = convert_video(link)
-
-                if full == "fail":
-                    self.message['text'] = 'Video Format to Convert Invalid'
-                else:
-                    self.message['text'] = 'Video Convert Successful'
-
-            else:
-                self.message['text'] = 'Video Format to Convert Invalid'
-
-        else:
-            self.message['text'] = 'Video Format to Convert Invalid'
 
     def get_url_video(self):
         # redirect to download video
