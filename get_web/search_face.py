@@ -1,5 +1,6 @@
-from icrawler.builtin import GoogleImageCrawler
+from icrawler.builtin import BingImageCrawler
 from icrawler import ImageDownloader
+import cv2
 import os
 
 
@@ -14,11 +15,12 @@ class PrefixNameDownloader(ImageDownloader):
 
 
 def search_face(name, directory):
-    google_crawler = GoogleImageCrawler(storage={'root_dir': directory}, downloader_cls=PrefixNameDownloader)
-    filters = dict(size='medium', type='face')
+
+    bing_crawler = BingImageCrawler(storage={'root_dir': directory}, downloader_cls=PrefixNameDownloader)
+    filters = dict(size='medium', type='photo', color='color', people='face')
     real_name = name
-    name = name + "face jpg png"
-    google_crawler.crawl(keyword=name, max_num=1, filters=filters, )
+    name = name
+    bing_crawler.crawl(keyword=name, max_num=1, filters=filters)
 
     for root, dirs, files in os.walk(directory):
 
@@ -28,11 +30,23 @@ def search_face(name, directory):
             os.rename(path, new_name)
             return 0
 
-        if "000001.npg" in files:
+        elif "000001.png" in files:
 
-            new_name = str(directory + real_name + ".npg")
-            path = directory + "000001.npg"
+            new_name = str(directory + real_name + ".png")
+            path = directory + "000001.png"
             os.rename(path, new_name)
             return 0
+
+        elif "000001.jpeg" in files:
+            path = directory + "000001.jpeg"
+            new_name = str(directory + real_name + ".png")
+            img = cv2.imread(path)
+            cv2.imwrite(new_name, img, [cv2.IMWRITE_PNG_COMPRESSION, 9])
+            return 0
+
+
+
+
+
         else:
             pass

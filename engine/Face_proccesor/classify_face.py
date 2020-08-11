@@ -4,23 +4,23 @@ import numpy as np
 from engine.Face_proccesor.get_faces import get_faces
 
 
-def classify_face(im, tags):
+def classify_face(im, faces):
     """
     will find all of the faces in a given image and label
     them if it knows what they are
 
-    :param tags: img
+    :param faces: faces
     :param im: video
     :return: list of face names
     """
 
     if im.any():
 
-        faces = get_faces(tags)
         faces_encoded = list(faces.values())
         known_face_names = list(faces.keys())
 
-        img = cv2.resize(im, (0, 0), fx=0.5, fy=0.5)
+        # img = cv2.resize(im, (0, 0), fx=0.5, fy=0.5)
+        img = im
 
         face_locations = fr.face_locations(img)
 
@@ -52,12 +52,13 @@ def classify_face(im, tags):
                     cv2.rectangle(img, (left - 20, bottom - 15),
                                   (right + 20, bottom + 20),
                                   (255, 255, 255), cv2.FILLED)
-                    
+
                     font = cv2.FONT_HERSHEY_COMPLEX
-                    cv2.putText(img, name, (left - 20, bottom + 15), 
+                    cv2.putText(img, name, (left - 20, bottom + 15),
                                 font, 1.0, (0, 0, 0), 2)
                 return img
-            else:
-                pass
+
+        else:
+            return img
     else:
         return "fail"
