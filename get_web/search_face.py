@@ -1,4 +1,3 @@
-#!/usr/bin/env
 from icrawler.builtin import BingImageCrawler
 from icrawler import ImageDownloader
 import cv2

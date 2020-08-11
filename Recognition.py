@@ -1,4 +1,3 @@
-#!/usr/bin/env
 from get_web.download_video import download_video
 from get_web.search_face import search_face
 from engine.Video_proccesor.get_cam import get_cam
