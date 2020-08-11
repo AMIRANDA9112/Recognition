@@ -1,5 +1,6 @@
 import cv2
 
+
 def get_frames(filename):
     video = cv2.VideoCapture(filename)
     while video.isOpened():
