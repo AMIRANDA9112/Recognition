@@ -1,7 +1,7 @@
+#!/usr/bin/env
 import face_recognition as fr
 import cv2
 import numpy as np
-from engine.Face_proccesor.get_faces import get_faces
 
 
 def classify_face(im, faces):

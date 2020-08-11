@@ -1,3 +1,4 @@
+#!/usr/bin/env
 import cv2
 from engine.Face_proccesor.get_faces import get_faces
 from engine.Face_proccesor.classify_face import classify_face

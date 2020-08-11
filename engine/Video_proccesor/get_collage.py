@@ -1,5 +1,5 @@
+#!/usr/bin/env
 import numpy as np
-import cv2
 
 
 def get_collage(frames, count):
@@ -37,4 +37,4 @@ def get_collage(frames, count):
     print(row3)
 
     collage = np.concatenate((row1, row2, row3), axis=0)
-    return (collage)
+    return collage
