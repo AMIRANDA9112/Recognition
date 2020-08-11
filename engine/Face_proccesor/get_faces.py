@@ -1,3 +1,4 @@
+#!/usr/bin/env
 import face_recognition as fr
 import os
 
