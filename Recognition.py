@@ -299,6 +299,7 @@ class interface_index:
         if self.validation_ipp():
             ipp = self.ipp.get()
             resolution = self.resolution_p.get()
+            detail = self.detailp.get()
             self.message3['text'] = 'Ip Cam Pedestrian Detection in Progress'
             get_ipp(ipp, resolution)
 
