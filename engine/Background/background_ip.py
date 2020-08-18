@@ -1,15 +1,20 @@
 import cv2
 import numpy as np
-from resize_b import  resize_b
+from engine.Background.resize_b import resize_b
 
-def background_cam(dir_video):
-    video = cv2.VideoCapture(0)
+
+def background_ip(ip, dir_video, detail):
+    size = int(detail) / 10
+    ip = "https://" + ip + "/video"
+    capture = cv2.VideoCapture(ip)
     b_video = cv2.VideoCapture(dir_video)
-    success, ref_img = video.read()
+    success, ref_img = capture.read()
     flag = 0
 
     while True:
-        success, img = video.read()
+
+        success, img = capture.read()
+        cv2.resize(img, (0, 0), fx=size, fy=size)
         success2, bg = b_video.read()
         bg = resize_b(bg, ref_img)
         if flag == 0:
@@ -21,6 +26,7 @@ def background_cam(dir_video):
         diff[abs(diff) < 13.0] = 0
         gray = cv2.cvtColor(diff.astype(np.uint8), cv2.COLOR_BGR2GRAY)
         gray[np.abs(gray) < 10] = 0
+
         fgmask = gray.astype(np.uint8)
         fgmask[fgmask > 0] = 255
 
@@ -32,14 +38,13 @@ def background_cam(dir_video):
         dst = cv2.add(bgimg, fgimg)
         cv2.imshow('Background Replace', dst)
         key = cv2.waitKey(5) & 0xFF
-        if ord('q') == key:
+        if 27 == key:
             break
-        elif ord('d') == key:
+        elif ord(' ') == key:
             flag = 1
-            print("Background Captured")
+
         elif ord('r') == key:
             flag = 0
-            print("Ready to Capture new Background")
 
     cv2.destroyAllWindows()
-    video.release()
+    capture.release()
