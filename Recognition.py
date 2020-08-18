@@ -200,7 +200,7 @@ class interface_index:
         Label(frame4, text='Resolution index (Min1-Max10):', bg=color_section, bd=border_width).grid(row=7, column=0)
         self.detailb = Spinbox(frame4, from_=1, to=10)
         self.detailb.grid(row=7, column=1)
-        self.detailb.config(bg=color_input, bd=border_width, )
+        self.detailb.config(bg=color_input, bd=border_width)
 
         Button(frame4, text='IP Cam Video Background', command=self.add_ibg,
                bg=color_button, bd=border_width).grid(row=8, columnspan=2, sticky=W + E)
@@ -269,7 +269,7 @@ class interface_index:
             ipb = self.ipb.get()
             resolution = self.detailb.get()
             self.message4['text'] = 'Replacement in Progress'
-            background_ipi(ipb, video, resolution)
+            background_ip(ipb, video, resolution)
 
         else:
             self.message4['text'] = 'You Need a correct Video address and Ip Cam Correct'

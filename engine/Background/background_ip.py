@@ -5,7 +5,7 @@ from engine.Background.resize_b import resize_b
 
 def background_ip(ip, dir_video, detail):
     size = int(detail) / 10
-    ip = "https://" + ip + "/video"
+    ip = "https://" + ip
     capture = cv2.VideoCapture(ip)
     b_video = cv2.VideoCapture(dir_video)
     success, ref_img = capture.read()
