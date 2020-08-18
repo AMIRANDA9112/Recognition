@@ -106,69 +106,6 @@ class interface_index:
         Button(frame, text='IP Cam Faces Analysis', command=self.add_ipf, bg=color_button,
                bd=border_width).grid(row=10, columnspan=2, sticky=W + E)
 
-        Label(frame, image=pedestrian_detect, bg=color_label).grid(row=11, columnspan=2, pady=10, padx=1)
-
-        # detail of analyze input
-        Label(frame, text='Detail index (Min1-Max10):', bg=color_section, bd=border_width).grid(row=12, column=0)
-        self.detailp = Spinbox(frame, from_=1, to=10)
-        self.detailp.grid(row=12, column=1)
-        self.detailp.config(bg=color_input, bd=border_width, )
-
-        Button(frame, text='WebCam Pedestrian Analysis', command=self.add_camp, bg=color_button,
-               bd=border_width).grid(row=13, columnspan=2, sticky=W + E)
-
-        Label(frame, text='IP CAM: ', bg=color_section, bd=border_width).grid(row=14, column=0)
-        self.ipp = Entry(frame)
-        self.ipp.grid(row=14, column=1)
-        self.ipp.config(bg=color_input, bd=border_width)
-
-        # detail of analyze input
-        Label(frame, text='Resolution index (Min1-Max10):', bg=color_section, bd=border_width).grid(row=15, column=0)
-        self.resolutionp = Spinbox(frame, from_=1, to=10)
-        self.resolutionp.grid(row=15, column=1)
-        self.resolutionp.config(bg=color_input, bd=border_width, )
-
-        Button(frame, text='IP Cam Pedestrian Analysis', command=self.add_ipp, bg=color_button,
-               bd=border_width).grid(row=16, columnspan=2, sticky=W + E)
-
-        # Tools section
-
-        frame2 = LabelFrame(self.wind)
-        frame2.grid(row=3, column=0, columnspan=3, pady=20)
-        frame2.config(bg=color_label, bd=border_width)
-
-        Label(frame2, image=img_tools, bg=color_label).grid(row=1, columnspan=2, padx=10)
-
-        # Url video Input
-        Label(frame2, text='Video url:', bg=color_section, bd=border_width).grid(row=3, column=0)
-        self.download = Entry(frame2)
-        self.download.grid(row=3, column=1)
-        self.download.config(bg=color_input, bd=border_width)
-
-        # download Button
-        Button(frame2, text='Download Video from Youtube', command=self.get_url_video, bg=color_button,
-               bd=border_width).grid(row=4, columnspan=2, sticky=W + E)
-
-        # download face
-        Label(frame2, text='Name of celebrity or famous:', bg=color_section, bd=border_width).grid(row=5, column=0)
-        self.search = Entry(frame2)
-        self.search.grid(row=5, column=1)
-        self.search.config(bg=color_input, bd=border_width)
-
-        # download face Button
-        Button(frame2, text='Search Face', command=self.download_face,
-               bg=color_button, bd=border_width).grid(row=6, columnspan=2, sticky=W + E)
-
-    # Validations methods
-
-    def validation_url_video(self):
-        # validation url input
-        return len(self.download.get()) != 0
-
-    def validation_face(self):
-        # validation url input
-        return len(self.search.get()) != 0 and len(self.face.get()) != 0
-
     def validation(self):
         # validation paths input
         return len(self.video.get()) != 0 and len(self.face.get()) != 0
@@ -180,21 +117,6 @@ class interface_index:
     def validation_ipf(self):
         # validation url input
         return len(self.ipf.get()) != 0 and len(self.face.get()) != 0
-
-    def validation_ipp(self):
-        # validation url input
-        return len(self.ipp.get()) != 0
-
-    def add_ipp(self):
-
-        if self.validation_ipp():
-            ipp = self.ipp.get()
-            resolution = self.resolutionp.get()
-            self.message3['text'] = 'Ip Cam Pedestrian Detection in Progress'
-            get_ipp(ipp, resolution)
-
-        else:
-            self.message3['text'] = 'You Need a correct Ip Cam address'
 
     def add_ipf(self):
 
@@ -217,12 +139,6 @@ class interface_index:
 
         else:
             self.message3['text'] = 'You Need Images in Faces Directory'
-
-    def add_camp(self):
-
-        p_detail = self.detailp.get()
-        get_pedestrian(p_detail)
-        self.message3['text'] = 'Pedestrian Detection in Progress'
 
     def add_path(self):
 
@@ -247,34 +163,6 @@ class interface_index:
         else:
             self.message['text'] = 'Video to Analyze and Faces Images is required'
 
-    def get_url_video(self):
-        # redirect to download video
-        if self.validation_url_video():
-
-            url_video = self.download.get()
-            download_video(url_video)
-            self.message['text'] = 'Redirecting to download page'
-
-        else:
-            self.message['text'] = 'Please enter a valid YouTube Link'
-
-    def download_face(self):
-        # download a face of google image with a name input
-        if self.validation_face():
-
-            dir_face = self.face.get()
-
-            name = self.search.get()
-
-            if search_face(name, dir_face) == "fail":
-                self.message['text'] = 'Automatic image download in fail format, search other name'
-
-            else:
-                self.message['text'] = 'face image save in faces directory successful'
-
-        else:
-            self.message['text'] = '"Faces directory" and "Name" of face to search is required'
-
 
 if __name__ == '__main__':
     window = Tk()
@@ -282,10 +170,6 @@ if __name__ == '__main__':
     window.tk.call('wm', 'iconphoto', window._w, img)
     face_detect = Image("photo", file='art/faces.png')
     window.tk.call('wm', 'iconphoto', window._w, face_detect)
-    pedestrian_detect = Image("photo", file='art/pedestrian.png')
-    window.tk.call('wm', 'iconphoto', window._w, pedestrian_detect)
-    img_tools = Image("photo", file='art/tools.png')
-    window.tk.call('wm', 'iconphoto', window._w, img_tools)
     window.config(bg="white")
     application = interface_index(window)
     window.mainloop()

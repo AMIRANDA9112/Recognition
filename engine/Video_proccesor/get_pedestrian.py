@@ -1,16 +1,17 @@
 import cv2
-from engine.Detection_proccesor.get_faces import get_faces
-from engine.Detection_proccesor.classify_face import classify_face
+from engine.Detection_proccesor.person_detection import person_detection
 
 
-def get_cam(dir_faces):
-    faces = get_faces(dir_faces)
+def get_pedestrian(detail):
     capture = cv2.VideoCapture(0)
+
+    detail = int(detail) / 10
 
     while True:
 
         ret, frame = capture.read()
-        n = classify_face(frame, faces)
+
+        n = person_detection(frame, detail)
 
         cv2.imshow('video original', n)
 
