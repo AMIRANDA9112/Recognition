@@ -197,7 +197,7 @@ class interface_index:
         self.ipb.grid(row=6, column=1)
         self.ipb.config(bg=color_input, bd=border_width)
 
-        Label(frame4, text='Detail index (Min1-Max10):', bg=color_section, bd=border_width).grid(row=7, column=0)
+        Label(frame4, text='Resolution index (Min1-Max10):', bg=color_section, bd=border_width).grid(row=7, column=0)
         self.detailb = Spinbox(frame4, from_=1, to=10)
         self.detailb.grid(row=7, column=1)
         self.detailb.config(bg=color_input, bd=border_width, )
