@@ -301,7 +301,7 @@ class interface_index:
             resolution = self.resolution_p.get()
             detail = self.detailp.get()
             self.message3['text'] = 'Ip Cam Pedestrian Detection in Progress'
-            get_ipp(ipp, resolution)
+            get_ipp(ipp, resolution, detail)
 
         else:
             self.message3['text'] = 'You Need a correct Ip Cam address'
