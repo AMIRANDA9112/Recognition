@@ -1,7 +1,7 @@
 import cv2
 from engine.Video_proccesor.get_frames import get_frames
-from engine.Face_proccesor.classify_face import classify_face
-from engine.Face_proccesor.get_faces import get_faces
+from engine.Detection_proccesor.classify_face import classify_face
+from engine.Detection_proccesor.get_faces import get_faces
 from engine.Video_proccesor.get_collage import get_collage
 
 
