@@ -2,7 +2,7 @@ import cv2
 
 
 def resize_b(video_b, img):
-    if video_b.shape !=0:
+    if video_b:
         width = img.shape[1]
         height = img.shape[0]
         lim = (width, height)
