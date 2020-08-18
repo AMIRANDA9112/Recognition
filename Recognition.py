@@ -255,8 +255,9 @@ class interface_index:
         if self.validation_iip():
             video = self.image.get()
             ipb = self.ipb.get()
+            resolution = self.detailb.get()
             self.message4['text'] = 'Replacement in Progress'
-            background_ipi(video)
+            background_ipi(ipb, video, resolution)
 
         else:
             self.message4['text'] = 'You Need a correct Image address and Ip Cam Correct'
@@ -266,8 +267,9 @@ class interface_index:
         if self.validation_vip():
             video = self.video2.get()
             ipb = self.ipb.get()
+            resolution = self.detailb.get()
             self.message4['text'] = 'Replacement in Progress'
-            background_ip(video)
+            background_ipi(ipb, video, resolution)
 
         else:
             self.message4['text'] = 'You Need a correct Video address and Ip Cam Correct'
