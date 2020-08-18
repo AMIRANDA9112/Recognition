@@ -19,7 +19,7 @@ class interface_index:
         self.wind = window
         # self.wind.geometry("300x600")
         # self.wind.resizable(0, 0)
-        self.wind.title('Recognition Laboratory -- Version 1.3a')
+        self.wind.title('Recognition Laboratory -- Version 1.8a')
 
         # Colors Style
 
@@ -92,7 +92,7 @@ class interface_index:
 
         # start button
 
-        Button(frame, text='Start Face Analysis', command=self.add_path,
+        Button(frame, text='Video Face Analysis', command=self.add_path,
                bg=color_button, bd=border_width).grid(row=6, columnspan=2, sticky=W + E)
 
         # WebCam face analysis Button
