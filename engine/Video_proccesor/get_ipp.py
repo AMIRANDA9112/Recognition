@@ -5,7 +5,7 @@ from engine.Detection_proccesor.person_detection import person_detection
 def get_ipp(ip, size):
     size = int(size) / 10
 
-    ip = "https://" + ip + "/video"
+    ip = "https://" + ip
     capture = cv2.VideoCapture(ip)
 
     while True:
