@@ -40,29 +40,33 @@ class interface_index:
 
         # Output message
         self.message = Label(text='', fg=color_message)
-        self.message.grid(row=5, column=0, columnspa=2, sticky=W + E)
+        self.message.grid(row=6, column=1, columnspa=2, sticky=W + E)
         self.message['text'] = 'You see progress in console and can cancel de Analysis with Ctrl + c'
         self.message.config(bg=bg_message)
 
         self.message2 = Label(text='', fg=color_message)
-        self.message2.grid(row=4, column=0, columnspa=2, sticky=W + E)
+        self.message2.grid(row=5, column=1, columnspa=2, sticky=W + E)
         self.message2['text'] = 'Video ".mp4(xvid)" Format and Faces Image ".jpg" or ".png" Format'
         self.message2.config(bg=bg_message)
 
         self.message3 = Label(text='', fg=color_message)
-        self.message3.grid(row=2, column=0, columnspa=2, sticky=W + E)
+        self.message3.grid(row=4, column=1, columnspa=2, sticky=W + E)
         self.message3['text'] = 'You can use your WebCam'
         self.message3.config(bg=bg_message)
 
+        im = LabelFrame(self.wind)
+        im.grid(row=0, column=0, columnspan=4)
+        im.config(bg=color_label, bd=border_width)
+        Label(im, image=img, bg=color_label).grid(row=0, columnspan=2, padx=50)
+
         # Input Main process container
         frame = LabelFrame(self.wind)
-        frame.grid(row=0, column=0, columnspan=3, pady=20)
+        frame.grid(row=1, column=0, columnspan=3)
         frame.config(bg=color_label, bd=border_width)
 
         # image view
 
-        Label(frame, image=img, bg=color_label).grid(row=1, columnspan=2, pady=10)
-        Label(frame, image=face_detect, bg=color_label).grid(row=2, columnspan=2, padx=10)
+        Label(frame, image=face_detect, bg=color_label).grid(row=1, columnspan=2)
 
         # Path video Input
         Label(frame, text='Video Path:', bg=color_section, bd=border_width).grid(row=3, column=0)
@@ -106,35 +110,39 @@ class interface_index:
         Button(frame, text='IP Cam Faces Analysis', command=self.add_ipf, bg=color_button,
                bd=border_width).grid(row=10, columnspan=2, sticky=W + E)
 
-        Label(frame, image=pedestrian_detect, bg=color_label).grid(row=11, columnspan=2, pady=10, padx=1)
+        frame3 = LabelFrame(self.wind)
+        frame3.grid(row=1, column=3, columnspan=3, padx=20, sticky=N)
+        frame3.config(bg=color_label, bd=border_width)
+
+        Label(frame3, image=pedestrian_detect, bg=color_label).grid(row=11, columnspan=2)
 
         # detail of analyze input
-        Label(frame, text='Detail index (Min1-Max10):', bg=color_section, bd=border_width).grid(row=12, column=0)
-        self.detailp = Spinbox(frame, from_=1, to=10)
+        Label(frame3, text='Detail index (Min1-Max10):', bg=color_section, bd=border_width).grid(row=12, column=0)
+        self.detailp = Spinbox(frame3, from_=1, to=10)
         self.detailp.grid(row=12, column=1)
         self.detailp.config(bg=color_input, bd=border_width, )
 
-        Button(frame, text='WebCam Pedestrian Analysis', command=self.add_camp, bg=color_button,
+        Button(frame3, text='WebCam Pedestrian Analysis', command=self.add_camp, bg=color_button,
                bd=border_width).grid(row=13, columnspan=2, sticky=W + E)
 
-        Label(frame, text='IP CAM: ', bg=color_section, bd=border_width).grid(row=14, column=0)
-        self.ipp = Entry(frame)
+        Label(frame3, text='IP CAM: ', bg=color_section, bd=border_width).grid(row=14, column=0)
+        self.ipp = Entry(frame3)
         self.ipp.grid(row=14, column=1)
         self.ipp.config(bg=color_input, bd=border_width)
 
         # detail of analyze input
-        Label(frame, text='Resolution index (Min1-Max10):', bg=color_section, bd=border_width).grid(row=15, column=0)
-        self.resolutionp = Spinbox(frame, from_=1, to=10)
+        Label(frame3, text='Resolution index (Min1-Max10):', bg=color_section, bd=border_width).grid(row=15, column=0)
+        self.resolutionp = Spinbox(frame3, from_=1, to=10)
         self.resolutionp.grid(row=15, column=1)
         self.resolutionp.config(bg=color_input, bd=border_width, )
 
-        Button(frame, text='IP Cam Pedestrian Analysis', command=self.add_ipp, bg=color_button,
+        Button(frame3, text='IP Cam Pedestrian Analysis', command=self.add_ipp, bg=color_button,
                bd=border_width).grid(row=16, columnspan=2, sticky=W + E)
 
         # Tools section
 
         frame2 = LabelFrame(self.wind)
-        frame2.grid(row=3, column=0, columnspan=3, pady=20)
+        frame2.grid(row=2, column=0, columnspan=3)
         frame2.config(bg=color_label, bd=border_width)
 
         Label(frame2, image=img_tools, bg=color_label).grid(row=1, columnspan=2, padx=10)
@@ -278,7 +286,7 @@ class interface_index:
 
 if __name__ == '__main__':
     window = Tk()
-    img = Image("photo", file='art/icon.png')
+    img = Image("photo", file='art/icon2.png')
     window.tk.call('wm', 'iconphoto', window._w, img)
     face_detect = Image("photo", file='art/faces.png')
     window.tk.call('wm', 'iconphoto', window._w, face_detect)
