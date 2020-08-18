@@ -1,5 +1,6 @@
 import cv2
 from engine.Detection_proccesor.person_detection import person_detection
+import time
 
 
 def get_ipp(ip, size, detail):
@@ -7,6 +8,10 @@ def get_ipp(ip, size, detail):
 
     ip = "https://" + ip
     capture = cv2.VideoCapture(ip)
+
+    cap = cv2.VideoCapture(0)
+
+    cap.set(5, 3)
 
     while True:
 
