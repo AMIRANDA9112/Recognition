@@ -7,7 +7,9 @@ def get_pedestrian(detail):
 
     detail = int(detail) / 10
 
-    back_frame = capture[1]
+    ret, frame = capture.read()
+
+    back_frame = frame
 
     while True:
 

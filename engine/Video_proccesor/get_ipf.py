@@ -8,7 +8,8 @@ def get_ipf(ip, dir_faces, size):
 
     faces = get_faces(dir_faces)
     capture = cv2.VideoCapture(ip)
-    back_frame = capture[1]
+    ret, frame = capture.read()
+    back_frame = frame
 
     while True:
 

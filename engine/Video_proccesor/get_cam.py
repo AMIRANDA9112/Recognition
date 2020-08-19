@@ -7,7 +7,9 @@ def get_cam(dir_faces):
     faces = get_faces(dir_faces)
     capture = cv2.VideoCapture(0)
 
-    back_frame = capture[1]
+    et, frame = capture.read()
+
+    back_frame = frame
 
     while True:
 
