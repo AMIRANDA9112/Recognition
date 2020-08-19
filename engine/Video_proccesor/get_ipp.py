@@ -5,6 +5,7 @@ import time
 
 def get_ipp(ip, size, detail):
     size = int(size) / 10
+    detail = int(detail) / 10
 
     ip = "https://" + ip
     capture = cv2.VideoCapture(ip)
