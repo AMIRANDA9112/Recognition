@@ -7,15 +7,27 @@ def get_cam(dir_faces):
     faces = get_faces(dir_faces)
     capture = cv2.VideoCapture(0)
 
+    back_frame = capture[1]
+
     while True:
 
         ret, frame = capture.read()
-        n = classify_face(frame, faces)
 
-        cv2.imshow('video original', n)
+        if frame is not None:
 
-        if cv2.waitKey(1) == 27:
-            break
+            n = classify_face(frame, faces)
+
+            cv2.imshow('WebCam Face Analysis', n)
+
+            back_frame = frame
+
+            if cv2.waitKey(1) == 27:
+                break
+        else:
+            cv2.imshow('Fail WebCam connection', back_frame)
+
+            if cv2.waitKey(1) == 27:
+                break
 
     capture.release()
 

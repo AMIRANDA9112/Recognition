@@ -42,6 +42,7 @@ def compile_video(dir_video, dir_faces, detail):
         collage = get_collage(frames, counter_append)
         dir_v = (dir_faces + '/analyze.png')
         cv2.imwrite(dir_v, collage)
+
         return count
 
     else:
