@@ -44,7 +44,7 @@ class interface_index:
 
         self.message3 = Label(text='', fg=color_message)
         self.message3.grid(row=4, column=1, columnspa=2, sticky=W + E)
-        self.message3['text'] = 'You can use your WebCam'
+        self.message3['text'] = 'You can use your WebCam and IpCAm in all Modules'
         self.message3.config(bg=bg_message)
 
         self.message4 = Label(text='', fg=color_message)
@@ -54,7 +54,7 @@ class interface_index:
 
         self.message5 = Label(text='', fg=color_message)
         self.message5.grid(row=5, column=3, columnspa=2, sticky=W + E)
-        self.message5['text'] = ''R' key for reset Background , Space key for set Background'
+        self.message5['text'] = "'R' key for reset Background , Space key for set Background"
         self.message5.config(bg=bg_message)
 
         im = LabelFrame(self.wind)
