@@ -1,7 +1,7 @@
 from tkinter import *
 import PIL.Image
 import PIL.ImageTk
-from modules.Module_face import module_face
+from video.Module_face import module_face
 from modules.Module_pedestrian import module_pedestrian
 from modules.Module_backgroundR import module_backgroundR
 from get_web.download_video import download_video
@@ -109,6 +109,8 @@ class interface_index:
 
 
 
+
+
     @staticmethod
     def m_face():
 
@@ -177,14 +179,7 @@ class interface_index:
     window = Tk()
     img = Image("photo", file='../art/icon2.png')
     window.tk.call('wm', 'iconphoto', window._w, img)
-    fd = PIL.Image.open('../art/faces.png')
-    face_detect = PIL.ImageTk.PhotoImage(fd)
-    pd = PIL.Image.open('../art/pedestrian.png')
-    pedestrian_detect = PIL.ImageTk.PhotoImage(pd)
-    it = PIL.Image.open('../art/tools.png')
-    img_tools = PIL.ImageTk.PhotoImage(it)
-    ib = PIL.Image.open('../art/background.png')
-    img_bg = PIL.ImageTk.PhotoImage(ib)
+
     window.config(bg="white")
     application = interface_index(window)
     window.mainloop()
