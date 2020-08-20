@@ -7,16 +7,30 @@ def get_pedestrian(detail):
 
     detail = int(detail) / 10
 
+    ret, frame = capture.read()
+
+    back_frame = frame
+
     while True:
 
         ret, frame = capture.read()
 
-        n = person_detection(frame, detail)
+        if frame is not None:
 
-        cv2.imshow('video original', n)
+            n = person_detection(frame, detail)
 
-        if cv2.waitKey(1) == 27:
-            break
+            cv2.imshow('WebCam Pedestrian Detection', n)
+
+            back_frame = frame
+
+            if cv2.waitKey(1) == 27:
+                break
+
+        else:
+            cv2.imshow('Fail WebCam connection', back_frame)
+
+            if cv2.waitKey(1) == 27:
+                break
 
     capture.release()
 

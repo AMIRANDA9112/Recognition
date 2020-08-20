@@ -25,6 +25,8 @@ def compile_video(dir_video, dir_faces, detail):
         counter_append = 0
         counter = 0
 
+        count_collage = 1
+
         for f in get_frames(dir_video):
             if counter != 0:
                 if (counter * detail) % 10 == 0:
@@ -36,12 +38,23 @@ def compile_video(dir_video, dir_faces, detail):
                     counter_append += 1
                     
             counter += 1
+            if counter_append == 24:
             
+                counter_append = int(counter_append)
+
+                collage = get_collage(frames, counter_append)
+                dir_v = (dir_faces + '/analyze' + str(count_collage) + ".png")
+                count_collage += 1
+                cv2.imwrite(dir_v, collage)
+                counter_append = 0
+                frames = []
+
         counter_append = int(counter_append)
 
         collage = get_collage(frames, counter_append)
-        dir_v = (dir_faces + '/analyze.png')
+        dir_v = (dir_faces + '/analyze' + str(count_collage) + ".png")
         cv2.imwrite(dir_v, collage)
+
         return count
 
     else:

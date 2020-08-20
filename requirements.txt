@@ -3,3 +3,7 @@ future~=0.18.2
 icrawler~=0.6.3
 opencv-python~=4.2.0.34
 imutils~=0.5.3
+pillow~=7.2.0
+face_recognition_models
+face_recognition
+future~=0.18.2

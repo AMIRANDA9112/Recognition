@@ -7,19 +7,30 @@ def get_ipf(ip, dir_faces, size):
     size = int(size) / 10
 
     faces = get_faces(dir_faces)
-    ip = "https://" + ip
     capture = cv2.VideoCapture(ip)
+    ret, frame = capture.read()
+    back_frame = frame
 
     while True:
 
         ret, frame = capture.read()
-        cv2.resize(frame, (0, 0), fx=size, fy=size)
-        n = classify_face(frame, faces)
 
-        cv2.imshow('Ip Faces Analysis', n)
+        if frame is not None:
 
-        if cv2.waitKey(1) == 27:
-            break
+            cv2.resize(frame, (0, 0), fx=size, fy=size)
+            n = classify_face(frame, faces)
+            back_frame = frame
+
+            cv2.imshow('Ip Faces Analysis', n)
+
+            if cv2.waitKey(1) == 27:
+                break
+
+        else:
+            cv2.imshow('Fail Ip connection', back_frame)
+
+            if cv2.waitKey(1) == 27:
+                break
 
     capture.release()
 
