@@ -24,7 +24,7 @@ Are required this libraries in Python 3.7:
 - future~=0.18.2
 - os
 - cmake
-- dlib
+- dlib~=19.7
 
 ## Usage
 
