@@ -135,7 +135,7 @@ make effect in the output video.
 ![alt](https://i.ibb.co/KsTSJ66/captureset.png)
 
 The algorithm only replace the changes respect to the moment of capture with
-the key SPACE, y you like reset, you can use the 'R' key for reset the background
+the key SPACE, if you like reset, you can use the 'R' key for reset the background
 and SPACE for set again.
 
 ![alt](https://i.ibb.co/GRr7wmK/ipbgnoset.png)
